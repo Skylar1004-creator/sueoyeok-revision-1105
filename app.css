@@ -196,22 +196,30 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--line-1);
 }
 .st.wait .node { box-shadow: inset 0 0 0 3px var(--line-1); opacity: .85; }
-/* 현재 위치: 흰 받침 위 누끼 열차 (노선 위에 보이도록) */
-.st.now { z-index: 5; }
-.st.now .node {
-  width: 48px; height: 48px; margin-left: -9px;
-  background: #fff;
-  box-shadow: 0 0 0 3px var(--line-1), 0 4px 10px rgba(0, 82, 164, .28);
+/* C02 현재 위치: 금색 받침 + 진한 누끼 열차 (노선 위에서 분명히 보이게) */
+#C02 .st.now,
+#C02-2 .st.now { z-index: 8; }
+#C02 .st.now .node,
+#C02-2 .st.now .node {
+  width: 56px; height: 56px; margin-left: -13px;
+  background: var(--gold);
+  box-shadow:
+    0 0 0 4px #fff,
+    0 0 0 7px var(--line-1),
+    0 8px 16px rgba(42, 43, 51, .28);
   animation: train-bob 1.6s ease-in-out infinite;
 }
-.st.now .node .train-cut {
-  width: 30px; height: 30px; display: block;
-  color: var(--line-1);
+#C02 .st.now .node .train-cut,
+#C02-2 .st.now .node .train-cut {
+  width: 34px; height: 34px; display: block;
+  color: var(--ink);
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.35));
 }
-.st.now .node .train-cut path { fill: currentColor; }
+#C02 .st.now .node .train-cut path,
+#C02-2 .st.now .node .train-cut path { fill: currentColor; }
 @keyframes train-bob {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+  50% { transform: translateY(-4px); }
 }
 .st b { font-weight: 700; font-size: 17px; display: block; line-height: 1.25; letter-spacing: -0.01em; }
 .st small { font-size: 13px; color: var(--ink-2); display: block; }
@@ -232,13 +240,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .route { position: relative; display: flex; justify-content: space-between; align-items: center; height: 24px; }
 .route::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 8px; margin-top: -4px; border-radius: 4px; background: var(--l); }
 .route i { position: relative; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 3px var(--l); }
-.route i.d { box-shadow: inset 0 0 0 3px var(--l); background: radial-gradient(circle, var(--l) 35%, #fff 36%); }
-.route i.n {
-  width: 28px; height: 28px; background: transparent; box-shadow: none;
-  -webkit-mask: url("img/train-cutout.svg") center / contain no-repeat;
-  mask: url("img/train-cutout.svg") center / contain no-repeat;
-  background-color: var(--l, var(--line-1));
-}
+.route i.d { box-shadow: inset 0 0 0 5px var(--stamp); }
+.route i.n { width: 24px; height: 24px; background: var(--gold); box-shadow: inset 0 0 0 3px var(--ink); }
 .waiting { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 4px; flex: none; }
 .waiting li { display: grid; justify-items: center; gap: 3px; font-size: 13px; font-weight: 600; color: var(--ink-2); }
 .waiting i { font-style: normal; width: 30px; height: 30px; border-radius: 50%; background: var(--l); color: var(--lt, #fff); display: grid; place-items: center; font-weight: 800; font-size: 13px; }
