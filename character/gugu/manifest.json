@@ -1,0 +1,86 @@
+{
+  "id": "gugu",
+  "name": "구구",
+  "version": "1.0",
+  "description": "수어역 역무원 비둘기. 시연본의 캐릭터를 기준으로 AI로 표정을 늘렸다.",
+  "source": "design/gugu/final (원본 1254px), design/gugu/hires (흰 배경)",
+  "poses": {
+    "greet": {
+      "file": "greet.png",
+      "alt": "역무원 모자를 쓴 비둘기 구구가 날개를 흔들어 인사하는 모습",
+      "use": "로그인, 가입, 호선 선택, 영상 등록, 스플래시"
+    },
+    "nudge": {
+      "file": "nudge.png",
+      "alt": "화가 나서 날개로 삿대질하는 구구",
+      "use": "홈(학습 끊김)"
+    },
+    "cheer": {
+      "file": "cheer.png",
+      "alt": "기뻐서 양 날개를 든 구구",
+      "use": "홈(학습 중), 가입 목적, 내 활동, 소통역"
+    },
+    "correct": {
+      "file": "correct.png",
+      "alt": "눈을 반짝이며 기뻐하는 구구",
+      "use": "퀴즈 정답"
+    },
+    "comfort": {
+      "file": "comfort.png",
+      "alt": "걱정스러운 표정으로 땀을 흘리는 구구",
+      "use": "퀴즈 오답"
+    },
+    "celebrate": {
+      "file": "celebrate.png",
+      "alt": "체크 표시 팻말을 들고 축하하는 구구",
+      "use": "퀴즈 결과"
+    },
+    "preparing": {
+      "file": "preparing.png",
+      "alt": "공사 표지판 옆에 선 구구",
+      "use": "AI 수어 대화, 준비 중"
+    },
+    "empty": {
+      "file": "empty.png",
+      "alt": "돋보기를 든 구구",
+      "use": "검색 결과 없음, 내 활동 빈 화면"
+    },
+    "farewell": {
+      "file": "farewell.png",
+      "alt": "눈물을 흘리며 손수건을 흔드는 구구",
+      "use": "탈퇴 확인"
+    },
+    "error": {
+      "file": "error.png",
+      "alt": "눈을 감고 조는 구구",
+      "use": "공통 오류"
+    }
+  },
+  "views": {
+    "front": "view-front.png",
+    "threequarter": "view-threequarter.png",
+    "side": "view-side.png",
+    "threequarter_back": "view-threequarter-back.png",
+    "back": "view-back.png",
+    "turnaround": "turnaround.png"
+  },
+  "lines": {
+    "login_welcome": "어서 와라구구!",
+    "ask_nickname": "뭐라고 부르면 되냐구구?",
+    "ask_purpose": "수어역에 온 이유를 알려달라구구!",
+    "streak_cheer": "오늘은 했다구구.\n내일도 빠지면\n화낸다구구!",
+    "streak_nudge": "도대체\n언제할거냐구구!\n밥먹고, 잠만자고!",
+    "search_empty": "이 역에는 없다구구.\n다른 말로 찾아보라구구!",
+    "record_tip": "얼굴이랑 손, 상체가 다 보이게 찍으라구구!",
+    "pick_line": "어느 호선을 탈 거냐구구?",
+    "current_station": "여기서\n내리라구구!",
+    "station_hint": "다 보면 퀴즈 간다구구!",
+    "correct_title": "정답이라구구!",
+    "wrong_title": "아쉽다구구",
+    "result": "잘했다구구! 내일도 오라구구!",
+    "preparing": "아직 공사 중이다구구.\n조금만 기다리라구구!",
+    "activity_empty": "아직 텅 비었다구구!",
+    "farewell": "정말 가는 거냐구구...",
+    "community": "오늘은 무슨 얘기를 나눌 거냐구구?"
+  }
+}

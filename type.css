@@ -1,0 +1,26 @@
+/* 글꼴 적용 범위. 현재 2안(균형형). 고객이 다른 안을 고르면 이 파일만 바꾼다.
+   근거와 약점 보정은 글꼴_주아_검토.md, 안 비교는 font-jua.html.
+   관리자 화면(.admin)은 범위 밖이라 Pretendard 그대로다.
+   주아는 굵기가 하나뿐이라 font-weight 400만 쓴다. 합성 굵기를 막는다. */
+@font-face { font-family: "Jua"; src: url("fonts/Jua.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+.screen, .g { font-synthesis: none; word-break: keep-all; }
+
+/* 캐릭터 말풍선 */
+:is(.screen, .g) .bubble { font-size: 18px; line-height: 1.4; letter-spacing: .01em; }
+:is(.screen, .g) .hero .bubble { font-size: 17px; }
+
+/* 큰 제목, 큰 숫자 */
+:is(.screen, .g) :is(.title, .count) { font-family: var(--font-voice); font-weight: 400; letter-spacing: .005em; }
+
+/* 작은 제목, 버튼, 목록 제목, 퀴즈 보기 */
+:is(.screen, .g) :is(.heading, .top h3, .btn, .row b, .cat b, .linecard-head b, .st b, .opt, .chip) {
+  font-family: var(--font-voice); font-weight: 400; letter-spacing: .01em;
+}
+:is(.screen, .g) :is(.heading, .top h3, .btn) { font-size: 18px; }
+:is(.screen, .g) :is(.row b, .opt) { font-size: 17px; }
+
+/* Pretendard로 두는 글: 주아와 굵기가 벌어지지 않게 500, 14px 이상 */
+:is(.screen, .g) :is(.row small, .cat small, .linecard small, .st small, .opt small, .caption, .small) { font-size: 14px; font-weight: 500; }
+:is(.screen, .g) .tab { font-size: 13px; }
+:is(.screen, .g) .tag { font-size: 13px; }
+:is(.screen, .g) .sheet p { font-size: 16px; }

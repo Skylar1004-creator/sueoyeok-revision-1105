@@ -1,0 +1,83 @@
+/* 수어역 디자인 토큰. React Native 테마(theme.ts)와 1:1로 맞춘다. */
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 45 920;
+  font-display: swap;
+}
+
+:root {
+  /* 바탕: 고객 요청으로 흰색 (기존 타일 초록 #f2f7f0 → 가독성) */
+  --tile: #ffffff;
+  --tile-line: #eceff1;
+  --surface: #ffffff;
+
+  /* 글자 */
+  --ink: #2a2b33;
+  --ink-2: #565965;
+  --ink-3: #73767f;
+  --line: #d9e0d6;
+
+  /* 행동: 고객이 고른 리프 그린 */
+  --leaf: #4a8125;
+  --leaf-press: #38631b;
+  --leaf-soft: #e8f2df;
+
+  /* 구조: 딥그린 */
+  --deep: #0f5c48;
+  --deep-soft: #dcefe8;
+
+  /* 강조: 승강장 안전선 노랑 */
+  --gold: #f4c43b;
+  --gold-soft: #fff3c9;
+
+  /* 피드백: 색만으로 전달하지 않고 아이콘·글을 함께 쓴다 */
+  --correct: #0e7c5a;
+  --correct-soft: #dff5ea;
+  --wrong: #bf3a2b;
+  --wrong-soft: #fde9e5;
+  --stamp: #d8392e;
+
+  /* 주제 타일 바탕: 3가지만 돌려 쓴다 */
+  --tint-leaf: #e8f2df;
+  --tint-gold: #fff3c9;
+  --tint-pink: #ffe6e4;
+
+  /* 호선: 고객 시연본 값 */
+  --line-1: #0052a4;
+  --line-2: #33a23d;
+
+  /* 글꼴: 주아 + Pretendard. 어디에 어떤 글꼴을 쓰는지는 type.css 와 디자인가이드 5장. */
+  --font-body: "Pretendard Variable", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-voice: "Jua", "Pretendard Variable", "Malgun Gothic", sans-serif;
+
+  /* 크기 */
+  --t-display: 30px;
+  --t-title: 26px;
+  --t-heading: 18px;
+  --t-body: 16px;
+  --t-small: 14px;
+  --t-caption: 13px;
+
+  /* 간격 (4 단위) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+
+  /* 모서리: 패널 24, 버튼 16, 콘텐츠 16, 입력 14, 알약 999 */
+  --r-panel: 24px;
+  --r-button: 16px;
+  --r-content: 16px;
+  --r-input: 14px;
+  --r-pill: 999px;
+
+  /* 눌림 턱 */
+  --edge: 4px;
+
+  /* 터치 영역 최소 48 */
+  --touch: 48px;
+}

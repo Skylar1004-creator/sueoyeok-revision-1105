@@ -1,0 +1,25 @@
+/* 고객 수정 반영본 안내 + 갤러리 배경 */
+body { background: #f7f8f9; }
+.page-head.revision-head {
+  background: #fff;
+  border: 1px solid #e5e8eb;
+  border-radius: 20px;
+  padding: 20px 22px;
+  box-shadow: 0 8px 24px -18px rgba(42, 43, 51, .35);
+}
+.revision-note {
+  margin: 10px 0 0;
+  padding: 12px 14px;
+  background: #e8f2df;
+  border-radius: 12px;
+  color: #2a2b33;
+}
+.revision-list {
+  margin: 14px 0 10px;
+  padding-left: 1.25em;
+  display: grid;
+  gap: 8px;
+  color: #2a2b33;
+}
+.revision-list li { line-height: 1.45; }
+.revision-head a { color: #4a8125; font-weight: 700; }
