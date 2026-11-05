@@ -277,16 +277,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .prog i.n .ic { width: 12px; height: 12px; color: #fff; fill: currentColor; }
 
-/* 가입 A02~A04: 선 위를 달리는 기차 */
+/* 가입 A02~A04: musunmi 패턴 — 선 위 기차 + left transition */
 .prog.rail {
   display: block;
-  height: 36px;
+  height: 40px;
   margin-left: 8px;
   --p: 12;
 }
-.prog.rail[data-step="1"] { --p: 10; }
+.prog.rail[data-step="1"] { --p: 8; }
 .prog.rail[data-step="2"] { --p: 50; }
-.prog.rail[data-step="3"] { --p: 90; }
+.prog.rail[data-step="3"] { --p: 92; }
 .prog.rail::before { display: none; }
 .prog.rail .rail-track {
   position: absolute;
@@ -301,24 +301,32 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   width: calc(var(--p) * 1%);
   border-radius: 999px;
   background: linear-gradient(90deg, var(--deep), var(--leaf));
+  transition: width .48s ease;
 }
 .prog.rail .rail-train {
   position: absolute;
+  z-index: 2;
   top: 50%;
   left: calc(var(--p) * 1%);
-  transform: translate(-50%, -50%);
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 0 2px var(--deep), 0 3px 8px rgba(15, 92, 72, .22);
+  width: 36px; height: 36px;
+  margin-top: -18px;
+  margin-left: -18px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--deep) 18%, #fff);
+  background: var(--deep-soft);
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--deep) 10%, #fff);
   display: grid; place-items: center;
-  z-index: 2;
   color: var(--deep);
-  animation: train-bob 1.4s ease-in-out infinite;
+  pointer-events: none;
+  transition: left .48s ease;
 }
 .prog.rail .rail-train .ic {
   width: 20px; height: 20px;
   fill: currentColor;
+}
+@media (prefers-reduced-motion: reduce) {
+  .prog.rail .rail-fill,
+  .prog.rail .rail-train { transition: none; }
 }
 
 /* ---------- 피드백 시트 ---------- */
