@@ -182,8 +182,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- 노선 ---------- */
 .linemap { position: relative; flex: 1; min-height: 0; background: var(--surface); border-radius: var(--r-content); overflow: hidden; }
-.linemap svg.track { position: absolute; inset: 0; width: 100%; height: 100%; }
-.st { position: absolute; display: flex; align-items: center; gap: 10px; }
+.linemap svg.track { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.st { position: absolute; display: flex; align-items: center; gap: 10px; z-index: 2; }
 /* 역 점: 파란 원 + 완료는 안쪽 작은 파란 점 (빨간 체크 제거) */
 .st .node {
   width: 30px; height: 30px; border-radius: 50%; background: #fff;
@@ -196,15 +196,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--line-1);
 }
 .st.wait .node { box-shadow: inset 0 0 0 3px var(--line-1); opacity: .85; }
-/* 현재 위치: 노랑 대신 누끼 열차 */
+/* 현재 위치: 흰 받침 위 누끼 열차 (노선 위에 보이도록) */
+.st.now { z-index: 5; }
 .st.now .node {
-  width: 44px; height: 44px; margin-left: -7px;
-  background: transparent; box-shadow: none;
+  width: 48px; height: 48px; margin-left: -9px;
+  background: #fff;
+  box-shadow: 0 0 0 3px var(--line-1), 0 4px 10px rgba(0, 82, 164, .28);
   animation: train-bob 1.6s ease-in-out infinite;
 }
 .st.now .node .train-cut {
-  width: 40px; height: 40px; display: block;
-  filter: drop-shadow(0 2px 4px rgba(0, 82, 164, .25));
+  width: 30px; height: 30px; display: block;
   color: var(--line-1);
 }
 .st.now .node .train-cut path { fill: currentColor; }
