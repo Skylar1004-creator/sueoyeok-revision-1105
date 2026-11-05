@@ -195,7 +195,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .st.done .node::after {
   content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--line-1);
 }
-.st.wait .node { box-shadow: inset 0 0 0 3px var(--line-1); opacity: .55; }
+.st.wait .node { box-shadow: inset 0 0 0 3px var(--line-1); opacity: .85; }
 /* 현재 위치: 노랑 대신 누끼 열차 */
 .st.now .node {
   width: 44px; height: 44px; margin-left: -7px;
