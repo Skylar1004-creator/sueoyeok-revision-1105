@@ -261,19 +261,62 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .replay { width: var(--touch); height: var(--touch); display: grid; place-items: center; border-radius: var(--r-input); background: var(--surface); flex: none; }
 .replay .ic { width: 22px; height: 22px; }
 
-/* ---------- 진행: 역 점 ---------- */
-/* 가입 진행: 지하철 노선 + 현재 역(열차) */
+/* ---------- 진행 (퀴즈 등: 역 점) ---------- */
 .prog { flex: 1; display: flex; align-items: center; position: relative; justify-content: space-between; height: 28px; margin-left: 4px; }
 .prog::before { content: ""; position: absolute; left: 8px; right: 8px; top: 50%; height: 8px; margin-top: -4px; border-radius: 4px; background: #cfd6de; }
 .prog i { position: relative; width: 14px; height: 14px; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 3px #8f99a6; z-index: 1; }
 .prog i.d { background: var(--deep); box-shadow: none; }
 .prog i.n {
-  width: 30px; height: 30px; border-radius: 10px;
+  width: 22px; height: 22px; border-radius: 50%;
   background: var(--deep);
   box-shadow: 0 0 0 4px rgba(15, 92, 72, .18);
   display: grid; place-items: center; color: #fff;
 }
-.prog i.n .ic { width: 16px; height: 16px; color: #fff; fill: currentColor; }
+.prog i.n .ic { width: 12px; height: 12px; color: #fff; fill: currentColor; }
+
+/* 가입 A02~A04: 선 위를 달리는 기차 */
+.prog.rail {
+  display: block;
+  height: 36px;
+  margin-left: 8px;
+  --p: 12;
+}
+.prog.rail[data-step="1"] { --p: 10; }
+.prog.rail[data-step="2"] { --p: 50; }
+.prog.rail[data-step="3"] { --p: 90; }
+.prog.rail::before { display: none; }
+.prog.rail .rail-track {
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 10px; margin-top: -5px;
+  border-radius: 999px;
+  background: #d5dbe3;
+  overflow: hidden;
+}
+.prog.rail .rail-fill {
+  display: block; height: 100%;
+  width: calc(var(--p) * 1%);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--deep), var(--leaf));
+}
+.prog.rail .rail-train {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--p) * 1%);
+  transform: translate(-50%, -50%);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--deep), 0 3px 8px rgba(15, 92, 72, .22);
+  display: grid; place-items: center;
+  z-index: 2;
+  color: var(--deep);
+  animation: train-bob 1.4s ease-in-out infinite;
+}
+.prog.rail .rail-train .ic {
+  width: 20px; height: 20px;
+  fill: currentColor;
+}
 
 /* ---------- 피드백 시트 ---------- */
 .sheet { flex: none; position: relative; padding: var(--s4) var(--s4) 30px; border-radius: var(--r-panel) var(--r-panel) 0 0; }
