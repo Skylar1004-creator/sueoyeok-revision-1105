@@ -119,6 +119,22 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .input.ph { color: var(--ink-3); }
 .help { font-size: var(--t-caption); color: var(--ink-2); margin-top: 6px; }
 
+/* A02~A04 가입: 회색 타원 칸 */
+#A02 .input, #A03 .input, #A04 .input,
+#A02 .opt, #A03 .opt, #A04 .opt {
+  border-radius: 999px;
+  background: #eff1f4;
+  box-shadow: inset 0 0 0 1.5px #c5cad3;
+}
+#A02 .opt.sel, #A03 .opt.sel, #A04 .opt.sel {
+  background: var(--leaf-soft);
+  box-shadow: inset 0 0 0 2px var(--leaf);
+}
+#A02 .opt .mark, #A03 .opt .mark, #A04 .opt .mark {
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 2px #aeb4bd;
+}
+
 /* ---------- 선택지 ---------- */
 .opt {
   display: flex; align-items: center; gap: var(--s3); width: 100%; min-height: 56px; padding: 10px 14px;
@@ -198,11 +214,24 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .replay .ic { width: 22px; height: 22px; }
 
 /* ---------- 진행: 역 점 ---------- */
-.prog { flex: 1; display: flex; align-items: center; position: relative; justify-content: space-between; height: 24px; margin-left: 4px; }
-.prog::before { content: ""; position: absolute; left: 4px; right: 4px; top: 50%; height: 6px; margin-top: -3px; border-radius: 3px; background: #d5ddd2; }
-.prog i { position: relative; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 2.5px #b7c1b4; }
-.prog i.d { background: var(--leaf); box-shadow: none; }
-.prog i.n { width: 22px; height: 22px; background: var(--gold); box-shadow: inset 0 0 0 2.5px var(--ink); }
+/* 가입 진행: 지하철 노선 + 현재 역(열차) */
+.prog { flex: 1; display: flex; align-items: center; position: relative; justify-content: space-between; height: 28px; margin-left: 4px; }
+.prog::before { content: ""; position: absolute; left: 8px; right: 8px; top: 50%; height: 8px; margin-top: -4px; border-radius: 4px; background: #cfd6de; }
+.prog i { position: relative; width: 14px; height: 14px; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 3px #8f99a6; z-index: 1; }
+.prog i.d { background: var(--deep); box-shadow: none; }
+.prog i.n {
+  width: 30px; height: 30px; border-radius: 10px;
+  background: var(--deep);
+  box-shadow: 0 0 0 4px rgba(15, 92, 72, .18);
+  display: grid; place-items: center; color: #fff;
+}
+.prog i.n::after {
+  content: "";
+  width: 16px; height: 16px;
+  background: #fff;
+  -webkit-mask: url("icons/train-bold.svg") center / contain no-repeat;
+  mask: url("icons/train-bold.svg") center / contain no-repeat;
+}
 
 /* ---------- 피드백 시트 ---------- */
 .sheet { flex: none; position: relative; padding: var(--s4) var(--s4) 30px; border-radius: var(--r-panel) var(--r-panel) 0 0; }
@@ -231,20 +260,25 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .sect { display: flex; align-items: baseline; justify-content: space-between; flex: none; }
 .note { background: var(--surface); border-radius: var(--r-content); padding: var(--s3) 14px; font-size: 15px; flex: none; }
 
-/* ---------- 사전 주제 (수정본: 더 정돈된 타일) ---------- */
+/* ---------- 사전 주제 (고객 참고안: 아이콘 박스 + 파스텔) ---------- */
 .cats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: none; }
 .cat {
-  position: relative; display: flex; flex-direction: column; justify-content: space-between;
-  min-height: 112px; padding: 16px 14px 14px; background: var(--c);
-  border-radius: 20px; overflow: hidden;
-  box-shadow: inset 0 0 0 1px rgba(42, 43, 51, .06);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+  min-height: 132px; padding: 16px 14px 14px; background: var(--c, #f3f4f6);
+  border-radius: 22px; overflow: hidden; text-align: left;
 }
-.cat .ic {
-  position: absolute; right: 10px; bottom: 8px; width: 48px; height: 48px;
-  color: var(--deep); opacity: .72;
+.cat-ico {
+  width: 44px; height: 44px; border-radius: 14px; background: #fff;
+  display: grid; place-items: center; box-shadow: 0 1px 2px rgba(42, 43, 51, .06);
 }
-.cat b { font-weight: 800; font-size: 17px; line-height: 1.25; display: block; letter-spacing: -0.01em; position: relative; z-index: 1; }
-.cat small { font-size: 13px; color: var(--ink-2); margin-top: 6px; display: block; position: relative; z-index: 1; line-height: 1.35; }
+.cat-ico .ic { width: 22px; height: 22px; color: var(--ink); }
+.cat b { font-weight: 800; font-size: 17px; line-height: 1.25; display: block; letter-spacing: -0.01em; color: var(--ink); }
+.cat small { font-size: 13px; color: var(--ink-2); margin-top: 4px; display: block; line-height: 1.35; }
+.cat.on { background: var(--leaf); }
+.cat.on .cat-ico { background: rgba(255, 255, 255, .95); }
+.cat.on .cat-ico .ic { color: var(--leaf); }
+.cat.on b, .cat.on small { color: #fff; }
+.cat.on small { opacity: .9; }
 
 /* ---------- 빈 화면 ---------- */
 .empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s3); text-align: center; padding: var(--s2); min-height: 0; }
@@ -262,9 +296,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .tabs { flex: none; display: grid; grid-template-columns: repeat(5, 1fr); background: var(--surface); box-shadow: 0 -1px 0 var(--line); padding: 6px 4px 24px; }
 .tab { display: grid; justify-items: center; gap: 1px; font-size: 12px; font-weight: 600; color: var(--ink-3); text-align: center; }
 .tab .pip { width: 48px; height: 30px; display: grid; place-items: center; border-radius: var(--r-pill); }
-.tab.on { color: var(--leaf); font-weight: 800; }
-.tab.on .pip { background: var(--leaf); color: #fff; }
-.tab.on .pip .ic { color: #fff; }
+.tab.on { color: var(--ink); font-weight: 800; }
+.tab.on .pip { background: var(--gold); }
 
 /* ---------- 도착 화면 ---------- */
 .result { text-align: center; display: grid; justify-items: center; gap: var(--s2); flex: none; }
@@ -274,12 +307,35 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .score b { font-weight: 800; font-size: 32px; display: block; line-height: 1.25; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 .score .caption { color: var(--ink-2); }
 
-/* ---------- 소통역 메모 ---------- */
-.board { background: #dcebd8; border-radius: var(--r-content); padding: var(--s3); display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); flex: none; }
-.memo { position: relative; background: #fff8c9; border-radius: 6px 6px 18px 6px; padding: 18px 10px 10px; font-weight: 700; font-size: 14.5px; line-height: 1.35; min-height: 104px; transform: rotate(-1.5deg); box-shadow: 0 2px 5px rgba(42, 43, 51, .14); }
-.memo:nth-child(2n) { background: #d6f0e3; transform: rotate(1.2deg); }
-.memo:nth-child(3n) { background: #ffe0dc; transform: rotate(.8deg); }
-.memo::before { content: ""; position: absolute; top: 5px; left: 50%; margin-left: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--stamp); }
+/* ---------- 소통역 메모 (코르크 보드) ---------- */
+.board {
+  position: relative;
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); flex: none;
+  padding: 16px 14px;
+  border-radius: 8px;
+  background-color: #c4a06a;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(90, 60, 30, .18) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 68% 42%, rgba(255, 240, 210, .22) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 40% 78%, rgba(70, 45, 20, .14) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 86% 70%, rgba(90, 60, 30, .16) 0 1px, transparent 1.7px),
+    linear-gradient(145deg, #d2b07a 0%, #b8925a 45%, #c9a56e 100%);
+  background-size: 18px 18px, 22px 22px, 16px 16px, 20px 20px, auto;
+  border: 10px solid #e2c59a;
+  box-shadow:
+    inset 0 0 0 2px #a17d4a,
+    inset 0 0 18px rgba(70, 45, 20, .18),
+    0 8px 18px rgba(42, 43, 51, .18);
+}
+.memo {
+  position: relative; background: #fff8c9; border-radius: 4px 4px 14px 4px;
+  padding: 18px 10px 10px; font-weight: 700; font-size: 14.5px; line-height: 1.35;
+  min-height: 104px; transform: rotate(-1.5deg);
+  box-shadow: 0 2px 6px rgba(42, 43, 51, .22);
+}
+.memo:nth-child(2n) { background: #fff4d4; transform: rotate(1.2deg); }
+.memo:nth-child(3n) { background: #ffe9c8; transform: rotate(.8deg); }
+.memo::before { content: ""; position: absolute; top: 5px; left: 50%; margin-left: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--stamp); box-shadow: 0 1px 2px rgba(0,0,0,.2); }
 .memo small { display: block; font-weight: 500; font-size: 12px; color: var(--ink-2); margin-top: 6px; }
 
 /* ---------- 관리자 ---------- */
